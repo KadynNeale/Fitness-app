@@ -3,8 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_launcher_fitness_background.xml" value="0.16197916666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.14583333333333334" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/layout.xml" value="0.18686868686868688" />
+        <entry key="app/src/main/res/menu/ bottom_navigation_menu.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.25" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_fitness.xml" value="0.1" />
       </map>
     </option>
   </component>
