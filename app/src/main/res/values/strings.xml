@@ -8,6 +8,13 @@
     <string name="btnLogin">Login</string>
     <string name="btnRegister">Register</string>
 
+    //registration
+    <string name="registration">Registration</string>
+    <string name="regFullName">Full Name</string>
+    <string name="regWeight">Weight</string>
+    <string name="regBirthday">YYYY/MM/DD</string>
+
+
     //nav stuff
     <string name="profile">My Profile</string>
     <string name="title_activity_main">MainActivity</string>
@@ -16,5 +23,9 @@
 
     //fragment stuff
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    //profile fragment
+    <string name="txtProfile">My Profile</string>
+    <string name="labelUser">User:</string>
+    <string name="labelBio">Bio</string>
 
 </resources>
