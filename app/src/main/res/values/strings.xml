@@ -1,12 +1,20 @@
 <resources>
     <string name="app_name">FitnessApp</string>
-    <string name="nav_home">Home</string>
+
+    //login
+    <string name="loginImg">Login Image</string>
+    <string name="txtUser">Username</string>
+    <string name="txtPass">Password</string>
+    <string name="btnLogin">Login</string>
+    <string name="btnRegister">Register</string>
+
+    //nav stuff
     <string name="profile">My Profile</string>
-    <string name="more">More</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+
+    //fragment stuff
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
