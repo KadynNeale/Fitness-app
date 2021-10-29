@@ -11,7 +11,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "userDb";
     private static final String TABLE_USERS = "users";
     private static final String KEY_ID = "id";
-    private static final String KEY_NAME = "full_name";
+    private static final String KEY_USERNAME = "username";
+    private static final String KEY_NAME = "user_full_name";
     private static final String KEY_USER_WEIGHT= "user_weight";
     private static final String KEY_USER_DOB= "user_dob";
     private static final String KEY_USER_BIO= "user_bio";
@@ -22,10 +23,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String CREATE_USERS_TABLE = "CREATE TABLE " + TABLE_USERS + "("
-                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
-                + KEY_USER_WEIGHT+ " TEXT," +  KEY_USER_DOB+
-                 KEY_USER_BIO + " TEXT" + ")";
+        String CREATE_USERS_TABLE = "CREATE TABLE " + TABLE_USERS +
+                "("
+                + KEY_ID + " INTEGER PRIMARY KEY,"
+                + KEY_USERNAME + " TEXT,"
+                + KEY_NAME + " TEXT,"
+                + KEY_USER_WEIGHT+ " TEXT,"
+                + KEY_USER_DOB+ " TEXT,"
+                + KEY_USER_BIO + " TEXT" + ")";
         sqLiteDatabase.execSQL(CREATE_USERS_TABLE);
     }
 
@@ -41,8 +46,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_ID, user.getId()); // Contact Phone
-        values.put(KEY_NAME, user.getName()); // Contact Name
+        values.put(KEY_USERNAME, user.getUsername());
+        values.put(KEY_NAME, user.getName());
         values.put(KEY_USER_DOB, user.getBirthday());
         values.put(KEY_USER_WEIGHT, user.getWeight());
 

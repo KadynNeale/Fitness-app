@@ -2,7 +2,6 @@ package com.s300224358.fitnessapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -19,7 +18,6 @@ public class RegistrationActivity extends AppCompatActivity {
 
     DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
     Date birthday;
-    DateFormat sqlFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 
     @Override
@@ -27,21 +25,18 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
+
+
         final EditText fullName = (EditText) findViewById(R.id.regFullName);
         final EditText weight = (EditText) findViewById(R.id.regWeight);
         final EditText birthdate = (EditText) findViewById(R.id.regBirthdate);
+        final EditText username = (EditText) findViewById(R.id.regUsername);
 
         Button register = (Button) findViewById(R.id.btnSubmitRegister);
-
-        DatabaseHandler db = new DatabaseHandler(this);
-        String sqlDob = sqlFormat.format(birthday);
-        String regName = fullName.getText().toString();
-        String regWeight = fullName.getText().toString();
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //checking if fields are empty
                 try{
                     String dob=(birthdate.getText().toString());
                     birthday = dateFormat.parse(dob);
@@ -54,19 +49,11 @@ public class RegistrationActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(fullName.getText().toString()) || TextUtils.isEmpty(weight.getText().toString()) ||
                         !fullName.getText().toString().contains(" ") || weight.getText().toString().contains(" ")){
                     Toast.makeText(RegistrationActivity.this, "Fields are incorrect", Toast.LENGTH_SHORT).show();
-                }
+                }else
 
-//                Toast.makeText(RegistrationActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
-                db.deleteAllStudents();
-                //inserting strings to sql
+                Toast.makeText(RegistrationActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
 
-                db.addUser(new User(regName,regWeight,sqlDob));
-//                db.getStudentsCount();
-                startActivity(new Intent(RegistrationActivity.this,LoginActivity.class));
             }
-
         });
-
-
     }
 }
