@@ -17,6 +17,7 @@ import java.util.Date;
 public class RegistrationActivity extends AppCompatActivity {
 
     DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+    DateFormat sqlDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     Date birthday;
 
 
@@ -32,6 +33,10 @@ public class RegistrationActivity extends AppCompatActivity {
         final EditText birthdate = (EditText) findViewById(R.id.regBirthdate);
         final EditText username = (EditText) findViewById(R.id.regUsername);
 
+        String userId= username.getText().toString(),
+                name = fullName.getText().toString(),
+                userWeight=weight.getText().toString();
+
         Button register = (Button) findViewById(R.id.btnSubmitRegister);
 
         register.setOnClickListener(new View.OnClickListener() {
@@ -40,19 +45,22 @@ public class RegistrationActivity extends AppCompatActivity {
                 try{
                     String dob=(birthdate.getText().toString());
                     birthday = dateFormat.parse(dob);
+
                 }
                 catch (java.text.ParseException e)
                 {
                     e.printStackTrace();
                     Toast.makeText(RegistrationActivity.this, "Enter a proper birthdate!", Toast.LENGTH_SHORT).show();
                 }
+
                 if (TextUtils.isEmpty(fullName.getText().toString()) || TextUtils.isEmpty(weight.getText().toString()) ||
                         !fullName.getText().toString().contains(" ") || weight.getText().toString().contains(" ")){
                     Toast.makeText(RegistrationActivity.this, "Fields are incorrect", Toast.LENGTH_SHORT).show();
                 }else
 
                 Toast.makeText(RegistrationActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
-
+                DatabaseHandler db = new DatabaseHandler(RegistrationActivity.this);
+                db.addUser(new User(userId,name,userWeight,sqlDate.format(birthday)));
             }
         });
     }
