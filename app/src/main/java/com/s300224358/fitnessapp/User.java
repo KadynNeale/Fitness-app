@@ -3,25 +3,36 @@ package com.s300224358.fitnessapp;
 public class User {
     private int id;
     private String weight;
+    private String username;
     private String name;
     private String birthday;
     private String bio;
     public User(){
 
     }
-    public User(int id,String name,String weight,String birthday, String bio){
+    public User(int id,String username,String name,String weight,String birthday, String bio){
+        this.id = id;
+        this.username = username;
+        this.name = name;
+        this.birthday=birthday;
+        this.bio=bio;
 
     }
-    public User(int id,String name,String weight,String birthday){
 
+
+    public User(String userID,String regName, String regWeight, String sqlDob) {
+        this.name = regName;
+        this.weight = regWeight;
+        this.birthday = sqlDob;
+        this.username = userID;
     }
 
-    public User(String name, String weight) {
-
+    public String getUsername() {
+        return username;
     }
 
-    public User(String regName, String regWeight, String sqlDob) {
-
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public int getId() {
