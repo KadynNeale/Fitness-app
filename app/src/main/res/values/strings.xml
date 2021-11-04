@@ -28,4 +28,30 @@
     <string name="labelUser">User:</string>
     <string name="labelBio">Bio</string>
 
+    //Workout Page
+    <string name="workoutsTitle">Compile a Workout Session</string>
+    <string name="exerciseAddBtn">Add Exercise</string>
+    <string-array name="exerciseList">
+        <item>Push-ups</item>
+        <item>Sit-ups</item>
+        <item>Crunches</item>
+        <item>Lunges</item>
+        <item>Squats</item>
+    </string-array>
+    <string name="currentItemsTitle">Current Exercises</string>
+
+    //Achievements Page
+    <string name="achievementsTitle">Achievements</string>
+    <string name="currentAchievementsTitle">Current Achievements</string>
+    <string name="unachievedTitle">Not Yet Achieved</string>
+    <string name="title_activity_login2">LoginActivity2</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
 </resources>

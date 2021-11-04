@@ -12,33 +12,50 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
-
+    EditText username,password;
+    Button register, login;
+    DBHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button login = (Button) findViewById(R.id.btnLogin);
-        Button register = (Button) findViewById(R.id.btnRegister);
+        login = (Button) findViewById(R.id.btnLogin);
+        register = (Button) findViewById(R.id.btnRegister);
 
-        EditText user = (EditText) findViewById(R.id.txtUsername);
-        EditText pass = (EditText) findViewById(R.id.txtPassword);
+        username = (EditText) findViewById(R.id.txtUsername);
+        password = (EditText) findViewById(R.id.txtPassword);
 
+        DB = new DBHelper(this);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(TextUtils.isEmpty(user.getText().toString())|| TextUtils.isEmpty(pass.getText().toString())){
-                    Toast.makeText(LoginActivity.this, "A field is empty", Toast.LENGTH_SHORT).show();
-                }else
-                    //write login check here
-                    startActivity(new Intent(LoginActivity.this,MainActivity.class));
-
+                Intent intent = new Intent(getApplicationContext(), LoginActivity2.class);
+                startActivity(intent);
             }
         });
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this,RegistrationActivity.class));
+                String user = username.getText().toString();
+                String pass = password.getText().toString();
+
+                if (user.equals("") || pass.equals("")){
+                    Toast.makeText(LoginActivity.this,"Please make sure fields are not empty", Toast.LENGTH_SHORT).show();
+                }else{
+                    Boolean checkMatch = DB.checkUsername(user);
+                    if (checkMatch == false){
+                        Boolean insertUser = DB.insertData(user,pass);
+                        if (insertUser ==true){
+                            Toast.makeText(LoginActivity.this, "You have registered", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(),Workouts.class);
+                            startActivity(intent);
+                        }else{
+                            Toast.makeText(LoginActivity.this,"Unsuccsessful",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    Toast.makeText(LoginActivity.this,"User already exists", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
